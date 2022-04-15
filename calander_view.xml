@@ -1,0 +1,15 @@
+<odoo>
+<record id="view_calander_checkout" model="ir.ui.view"> 
+  <field name="model">calander.view</field> 
+  <field name="arch" type="xml">             
+  <calendar color="date_deadline"  date_start="date_deadline" string="Tasks" mode="month">           
+  <field name="name"/>                 
+  </calendar>   
+  </field>
+</record> 
+<record id="action_calander_view_form" model="ir.actions.act_window">
+            <field name="name">calander_view</field>
+            <field name="res_model">calander.view</field>
+            <field name="view_mode">calendar</field>
+</record>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+	<record id="status_info" model='ir.ui.view'>
+		<field name='name'>status.info.type.tree</field>
+		<field name='model'>status.info</field>
+		<field name="arch" type="xml">
+			<form string="status info">
+				<header>
+                        <field name="state" widget="statusbar" options="{'clickable': '1'}"
+                        	statusbar_visible="received,viewed,selected" />
+                    </header>
+				<sheet>
+					<group>
+						<field name='name'/>
+				</group>
+			</sheet>
+		</form>
+	</field>
+</record>
+	<record id="status_data_tree" model="ir.ui.view">
+            <field name="name">status.info.type.tree</field>
+            <field name="model">status.info</field>
+            <field name="arch" type="xml">
+                <tree string="state">
+                	<field name="name"/>
+                	<field name="state"/>
+                </tree>
+            </field>
+        </record>
+    <record id="action_status_info_form" model="ir.actions.act_window">
+            <field name="name">status.info</field>
+            <field name="res_model">status.info</field>    
+            <field name="view_mode">tree,form</field>
+     </record>
+</odoo>

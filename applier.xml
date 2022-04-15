@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="applier_info" model='ir.ui.view'>
+        <field name='name'>applier.info.type.tree</field>
+        <field name='model'>applier.info</field>
+        <field name="arch" type="xml">
+            <form string="appliers info">
+                    <header>    
+                        <button string="apply" type="object" name="apply_in_company" class="oe_highlight" widget='statusbar' context="{'default_name': full_name} "/>
+                    </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_makeMeeting" class="oe_stat_button" icon="fa-calendar" type="object" string='meeting'/>
+                        <button name='action_viewstatus' class='oe_stat_button' icon='fa-star' type='object' string='status'/>
+                    </div>
+
+                    <h1 class="d-flex">
+                        <field name="image" widget='image' class="oe_avatar"/>
+                    </h1>   
+                    <group>                                                                  
+                        <field name="fname" placeholder="name"/>
+                        <field name='lname'/>
+                        <field name='full_name'/>
+                    </group>
+                    <group>
+                        <field name="mobile_no"/>
+                        <field name="gmail"/>
+                        <field name="expected_salary"/>
+                    </group>
+                    <group>
+                        <field name='previous_salary'/>
+                        <field name='previous_job_position'/>
+                        <field name='previous_company'/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+     <record id="company_info_tree" model="ir.ui.view">
+            <field name="name">student.info.type.tree</field>
+            <field name="model">applier.info</field>
+            <field name="arch" type="xml">
+                <tree string="applier">
+                    <field name='fname'/>
+                    <field name='lname'/>
+                    <field name="full_name"/>
+                    <field name='mobile_no'/>
+                </tree>
+            </field>
+    </record>
+    <record id="action_applier_info_form" model="ir.actions.act_window">
+            <field name="name">applier</field>
+            <field name="res_model">applier.info</field>    
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="view_id" ref="applier_info_tree"/> -->
+     </record>
+</odoo>

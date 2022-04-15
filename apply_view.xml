@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<odoo>
+        <record id="apply_info_wizard_form" model="ir.ui.view">
+            <field name="name">apply.info.wizard.form</field>
+            <field name="model">apply.info.wizard</field>
+            <field name="arch" type="xml">
+                <form string="apply for position">
+                    <group class="oe_title">
+                        <field name='fname'/>
+                        <field name='lname'/>
+                        <field name='mail_id'/>
+                    </group>
+                    <footer>
+                        <button name='action_create_info' type='object' string='create' class='btn-primary'/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="apply_info_wizard_action" model="ir.actions.act_window">
+            <field name="name">apply</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">apply.info.wizard</field>
+            <field name='view_id' ref='apply_info_wizard_form'/>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</odoo>

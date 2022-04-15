@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="parents_info_form_view" model="ir.ui.view">
+			<field name="name">parents.info.form.view</field>
+			<field name="model">parents.info</field>
+			<field name="arch" type="xml">
+				<form string="parents info">
+					<sheet>
+						<group>
+							<field name='fathers_name'/> 
+							<field name='mothers_name'/>
+							<field name='fathers_occupation'/>
+							<field name='mothers_occupation'/>
+							<field name='fathers_mobile_no'/>
+							<field name='mothers_mobile_no'/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record> 
+		<record id="parent_info_kanban" model="ir.ui.view">
+			<field name="name">parents.info.type.kanaban</field>
+			<field name="model">parents.info</field>
+			<field name="arch" type="xml">
+			   <kanban class="o_kanban_mobile">
+					<templates>
+						<t t-name="kanban-box">
+							<!-- <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+						   <field name="image" widget="image" class="o_kanban_image_fill_left" options="{'zoom': true, 'zoom_delay': 100, 'background': true, 'preventClicks': false}"/> -->
+								<div class="row">
+									<div class="col-auto">
+										&#x2058;
+										<span class="badge"><field name="fathers_name"/></span>
+									</div>
+									<div class="col-6">
+										&#x2058;
+										<span class="badge"><field name="mothers_name"/></span>
+									</div>
+									<div class="col-6">
+										&#x2058;
+										<span class="badge"><field name="fathers_mobile_no"/></span>
+									</div>
+									<div class="col-6">
+										&#x2058;
+										<span class="badge"><field name="mothers_mobile_no"/></span>
+									</div>
+								</div>  
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>  						
+		<record id="parents_info_action" model="ir.actions.act_window">
+			<field name="name">parents</field>
+			<field name="res_model">parents.info</field>
+			<field name="view_mode">tree,form,kanban</field>
+		</record>
+</odoo>

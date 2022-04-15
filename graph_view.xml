@@ -1,0 +1,17 @@
+<odoo>
+<record id="view_graph_checkout" model="ir.ui.view"> 
+  <field name="model">graph.view</field> 
+  <field name="arch" type="xml"> 
+    <graph type="bar"> 
+      <field name="name" /> 
+      <field name="salary" type="measure" /> 
+    </graph>   
+  </field> 
+</record> 
+
+<record id="action_graph_view_form" model="ir.actions.act_window">
+            <field name="name">graph_view</field>
+            <field name="res_model">graph.view</field>
+            <field name="view_mode">graph</field>
+        </record>
+</odoo>

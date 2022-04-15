@@ -1,0 +1,18 @@
+<odoo>
+<record id="view_pivot_checkout" model="ir.ui.view">   
+	<field name="name">pivot.view</field>   
+	<field name="model">pivot.view</field>   
+	<field name="arch" type="xml">       
+		<pivot>           
+			<field name="name" type="row"/>           
+			<field name="stage_id" type="col"/>       
+		</pivot>   
+	</field>
+</record>
+
+<record id="action_pivot_view_form" model="ir.actions.act_window">
+            <field name="name">pivot_view</field>
+            <field name="res_model">pivot.view</field>
+            <field name="view_mode">pivot</field>
+</record>
+</odoo>

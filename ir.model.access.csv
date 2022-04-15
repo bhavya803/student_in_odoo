@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_basic,access.student.basic,model_student_basic,base.group_user,1,1,1,1
+access_school_info,access.school.info,model_school_info,base.group_user,1,1,1,1
+access_parents_info,access.parents.info,model_parents_info,base.group_user,1,1,1,1
+access_country_info,access.country.info,model_country_info,base.group_user,1,1,1,1
+access_applier_info,access.applier.info,model_applier_info,base.group_user,1,1,1,1
+access_status_info,access.status.info,model_status_info,base.group_user,1,1,1,1
+access_graph_view,access.graph.view,model_graph_view,base.group_user,1,1,1,1
+access_calander_view,access.calander.view,model_calander_view,base.group_user,1,1,1,1
+access_pivot_view,access.pivot.view,model_pivot_view,base.group_user,1,1,1,1
+access_apply_info_wizard,access.apply.info.wizard,model_apply_info_wizard,base.group_user,1,1,1,1
+access_family_details,access.family.details,model_family_details,base.group_user,1,1,1,1

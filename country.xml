@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="country_info_action" model="ir.actions.act_window">
+        <field name="name">country</field>
+        <field name="res_model">country.info</field>
+         <!-- <field name="view_id" ref="school_info_form_view"/> -->
+        <field name="view_mode">tree,form</field>
+	</record>
+	<record id="country_info_form_view" model="ir.ui.view">
+            <field name="name">country.info.form.view</field>
+            <field name="model">country.info</field>
+            <field name="arch" type="xml">
+                <form string="country">
+                	<sheet>
+                        <group>
+							<field name="country_id"/>
+							<field name="state_id" />
+		                </group>
+		            </sheet>
+		         </form>
+		    </field>
+	</record>
+</odoo>

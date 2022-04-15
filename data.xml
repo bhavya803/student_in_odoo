@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="school_info_form_view" model="ir.ui.view">
+			<field name="name">school.info.form.view</field>
+			<field name="model">school.info</field>
+			<field name="arch" type="xml">
+				<form string="school">
+					<sheet>
+						<div class="oe_button_box" name="button_box">
+							<button string="create student" type="object" name="apply_in_company" class="oe_highlight" icon="fa-globe icon"/>
+						</div>
+						<h1 class="d-flex">
+							<field name="name" placeholder="Name" required="True"/>
+						</h1>
+								<group>
+										<field name='mobile_no'/>
+										<field name="email"/>
+										<field name="website"/>
+										<field name="address"/>
+										<field name='image'/>
+								</group>
+						<notebook>
+							<page name="student_data" string="student_data">
+								<field name='student_data'/>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>                          
+		</record>
+		<record id="school_info_kanban" model="ir.ui.view">
+			<field name="name">school.info.type.kanaban</field>
+			<field name="model">school.info</field>
+			<field name="arch" type="xml">
+			   <kanban class="o_kanban_mobile">
+					<templates>
+						<t t-name="kanban-box">
+							<div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+						   <field name="image" widget="image" class="o_kanban_image_fill_left" options="{'zoom': true, 'zoom_delay': 100, 'background': true, 'preventClicks': false}"/>
+								<div class="row">
+									<div class="col-auto">
+										&#x2058;
+										<span class="badge"><field name="name"/></span>
+									</div>
+									<div class="col-6">
+										&#x2058;
+										<span class="badge"><field name="mobile_no"/></span>
+									</div>
+									<div class="col-6">
+										&#x2058;
+										<span class="badge"><field name="email"/></span>
+									</div>
+									<div class="col-6">
+										&#x2058;
+										<span class="badge"><field name="address"/></span>
+									</div>
+								</div>  
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>               
+		<record id="school_info_action" model="ir.actions.act_window">
+			<field name="name">school</field>
+			<field name="res_model">school.info</field>
+			<field name="view_mode">tree,form,kanban</field>
+		</record>
+</odoo>

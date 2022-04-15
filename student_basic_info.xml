@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="student_basic_form" model="ir.ui.view">
+            <field name="name">student.basic.type.tree</field>
+            <field name="model">student.basic</field>
+            <field name="arch" type="xml">
+                <form string="student">
+                    <header>
+                        <field name="state" widget="statusbar" options="{'clickable': '1'}"
+                            statusbar_visible="draft,done,cancle"/>
+                        <button string="Done" type="object" name="register_done" class="oe_highlight" attrs="{'invisible':[('state','!=','draft')]}"/>
+                        <button string="Cancle" type="object" name="register_cancle" attrs="{'invisible':[('state','!=','draft')]}"/>
+                        <button string="Draft" type="object" name="register_draft" attrs="{'invisible':[('state','!=','cancle')]}"/>
+                    </header>
+                <sheet>
+                    <h1 class="d-flex">
+                                    <field name="image" widget='image' class="oe_avatar"/>
+                                </h1>
+                                <group>
+                                 <h2>
+                                    <group>
+                                    <field name="fname" placeholder="First Name" style="width:10%" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                    <!-- &#x2063; -->
+                                    <field name='mname' placeholder="Middle Name" style="width:10%" attrs="{'readonly':[('state', 'in', ['cancle', 'done'])]}"/>
+                                    <field name="lname" placeholder="Last Name" style="width:10%" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                </group>
+                                 </h2>
+                                </group> 
+                            <group>
+                                <group string="Class Information"> 
+                                    <field name='full_name' invisible='True'/>
+                                    <field name='present_class' string="Present Class" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                    <field name="max_student" string="Capacity" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>  
+                                    <field name="class_division" string="Division" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>  
+                                </group>
+                                <group string="School Information">
+                                    <field name="present_school_name" string="Name" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                    <field name="school_mobile_no" string="Mobile no" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                    <field name="school_email" string="Mail" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                </group> 
+                            </group>
+                            <notebook>
+                                    <page name="student_basic_form" string="General Information" >
+                                    <group>
+                                        <group>
+                                            <span class="o_form_label o_td_label" name="address_name">
+                                            <b>Address</b>
+                                        </span>
+                                            <div class="o_address_format">
+                                            <field name="street1" placeholder="Street1"  class="o_address_street" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                            <field name="street2" placeholder="Street1" class="o_address_street" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                            <field name='city_id' string='City' class="o_address_city"  attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                            <field name='state_id' string='State' class="o_address_state" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                            <field name="zipcode" placeholder="Zip" class="o_address_zip" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/> 
+                                            <!-- <field name="permenant_address" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/> -->
+                                            <field name='country_id' string='Country' class="o_address_country" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                        </div>                                                                  
+                                        </group>
+                                        <group>
+                                            <field name="mail_id" string="Email" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                            <field name="gender" string="Gender" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                            <field name="Dob" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                            <field name="age"/>
+                                            <field name='mobile_no' widget='phone' attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                        </group>
+                                    </group>
+                                    </page>
+                                      <page name="student_basic_form" string="Education">
+                                    <group>
+                                    <!-- <group string = "Education_information"> -->
+                                       <group>
+                                        <field name="prev_school_name" options="{'no_create_edit': True,'no_open': True}" string="Previous School Name" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                        <field name="previous_class" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                       </group>
+                                       <group>
+                                        <field name="medium" string="Medium" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                        <field name="academic_year" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                                <page string="Family Details">
+                                    <group>
+                                        <field name='Family_id' attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}">
+                                        <tree editable="button">
+                                            <field name="name"/>
+                                            <field name="mobile_no"/>
+                                            <field name="relation"/>
+                                        </tree>
+                                    </field>
+                                 </group>
+                             </page>
+                                 <page name="student_basic_form" string="Parent's Details">
+                                    <group>
+                                     <group>
+                                        <field name='father_name' options="{'no_create_edit': True,'no_open': True}" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                        <field name="mother_name" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                        <field name="father_occupation" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                     </group>
+                                     <group>
+                                        <field name="mother_occupation" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                        <field name="father_mobile_no" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                        <field name="mother_mobile_no" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                    </group>
+                                    </group>
+                                </page>
+                                <page name="student_basic_form" string="Remarks">
+                                    <group>
+                                        <field name='Remarks' string="Remarks" attrs="{'readonly': [('state', 'in', ['cancle', 'done'])]}"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <!-- <field name="activity_ids"/> -->
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="student_data_tree" model="ir.ui.view">
+            <field name="name">student.basic.type.tree</field>
+            <field name="model">student.basic</field>
+            <field name="arch" type="xml">
+                <tree string="Student">
+                    <field name='sequence' widget='handle'/>
+                    <field name="fname"/>
+                    <field name ="lname"/>
+                    <field name="full_name"/>
+                    <field name='mobile_no'/>
+                    <field name='mail_id'/>
+                    <!-- <field name='passout_year'/> -->
+                </tree>
+            </field>
+        </record>
+        <record id="student_data_kanban" model="ir.ui.view">
+            <field name="name">student.basic.type.kanaban</field>
+            <field name="model">student.basic</field>
+            <field name="arch" type="xml">
+               <kanban class="o_kanban_mobile">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+                           <field name="image" widget="image" class="o_kanban_image_fill_left" options="{'zoom': true, 'zoom_delay': 100, 'background': true, 'preventClicks': false}"/>
+                                <div class="row">
+                                    <div class="col-auto">
+                                        &#x2058;
+                                        <span class="badge"><field name="full_name"/></span>
+                                    </div>
+                                    <div class="col-10">
+                                        &#x2058;
+                                        <span class="badge"><field name="mobile_no"/></span>
+                                    </div>
+                                    <div class="col-6">
+                                        &#x2058;
+                                        <span class="badge"><field name="academic_year"/></span>
+                                    </div>
+                                    <div class="col-10">
+                                        &#x2058;
+                                        <span class="badge"><field name="previous_class"/></span>
+                                    </div>
+                                </div>
+                                </div>  
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="student_account_form" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="res_model">student.basic</field>
+            <field name="view_mode">form,tree,kanban</field>
+            <field name="view_id" ref="student_data_tree"/>
+        </record>
+</odoo>

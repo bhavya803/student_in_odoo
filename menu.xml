@@ -1,0 +1,64 @@
+<odoo>
+<data> 
+	<menuitem id = "Student"
+		name = "ERM"
+		sequence= '1'/>
+	<menuitem id ='students_data'
+		name ='Registration'
+		parent = 'Student'
+		action ='student_account_form'
+		sequence='1'/>
+	<menuitem id = 'school'
+		name ='Profile'
+		parent='Student'
+		sequence='2'/>
+	<menuitem id = 'school_info'
+		name ='School Information'
+		parent='school'
+		action='school_info_action'
+		sequence='0'/>
+	<menuitem id ='parents_info'
+		name ='Parents Information'
+		parent='school'
+		action='parents_info_action'
+		sequence='1'/>
+	<!-- <menuitem id ='country_info'
+		name ='country'
+		parent='Student'
+		action='country_info_action'
+		sequence='3'
+		/>
+	<menuitem id ='applier_info_form'
+		name="applier"
+		action='action_applier_info_form'
+		parent='Student'
+		sequence='4'/> -->
+	<!-- <menuitem id ='status_info_form'
+		name="status"
+		action='action_status_info_form'
+		parent='Student'
+		sequence='5'/> -->
+	<!-- <menuitem id='graph_view_action'
+		name='graph_view'
+		action='action_graph_view_form'
+		parent='Student'
+		sequence='6'/> -->
+<!--    <menuitem id='calander_view_action'
+		name='calander_view'
+		action='action_calander_view_form'
+		parent='Student'
+		sequence='7'/> -->
+	<!-- <menuitem id='pivot_view_action'
+		name='pivot_view'
+		action='action_pivot_view_form'
+		parent='Student'
+		sequence='8'/>   -->
+<!--    <menuitem id='action_apply_info'
+	name='apply'
+	action='apply_info_wizard_action'
+	parent='Student'
+	sequence='9'/> -->
+
+</data>
+</odoo>
+
